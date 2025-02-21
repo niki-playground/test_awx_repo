@@ -11,33 +11,31 @@ images:
 - name: quay.io/ansible/awx-operator
   newTag: 1.3.0
 
-# patches:
-# - patch: |-
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     metadata:
-#       name: controller-manager
-#       namespace: system
-#     spec:
-#       template:
-#         spec:
-#           imagePullSecrets:
-#             - name: default-quay-onecloud-svc
-#           containers:
+patches:
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: controller-manager
+      namespace: system
+    spec:
+      template:
+        spec:
+          containers:
 #             - name: kube-rbac-proxy
 #               resources:
 #                 requests:
 #                   cpu: 25m
 #                   memory: 64Mi
-#             - name: awx-manager
-#               resources:
-#                 limits:
-#                   cpu: 1
-#                   memory: 1024Mi
-#               env:
-#                 - name: ANSIBLE_DEBUG_LOGS
-#                   value: 'true'
-#   target:
-#     kind: Deployment
-#     name: controller-manager
-# namespace: awx-prod
+            - name: awx-manager
+              resources:
+                limits:
+                  cpu: 1
+                  memory: 1024Mi
+              env:
+                - name: ANSIBLE_DEBUG_LOGS
+                  value: 'true'
+  target:
+    kind: Deployment
+    name: controller-manager
+namespace: awx-prod
