@@ -4,10 +4,10 @@ resources:
 - github.com/ansible/awx-operator/config/default?ref=1.3.0
 - awx.yaml
 
-images:
 # - name: gcr.io/kubebuilder/kube-rbac-proxy
 #   newName: hub/kube-rbac-proxy
 #   newTag: v0.13.0
+images:
 - name: quay.io/ansible/awx-operator
   newTag: 1.3.0
 
