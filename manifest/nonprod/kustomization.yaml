@@ -22,16 +22,11 @@ patches:
       template:
         spec:
           containers:
-#             - name: kube-rbac-proxy
-#               resources:
-#                 requests:
-#                   cpu: 25m
-#                   memory: 64Mi
             - name: awx-manager
               resources:
                 limits:
-                  cpu: 1
-                  memory: 1024Mi
+                  cpu: 0.5
+                  memory: 512Mi
               env:
                 - name: ANSIBLE_DEBUG_LOGS
                   value: 'true'
