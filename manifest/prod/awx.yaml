@@ -9,19 +9,15 @@ spec:
   ingress_type: Route
   route_host: awx.apps.svc.az.lhtcloud.com
   route_tls_termination_mechanism: Edge
-  #postgres_image: registry.redhat.io/rhel9/postgresql-13:latest
-  # postgres_configuration_secret: lht-awx-external-postgres-configuration
   redis_image: http://127.0.0.1:5001/redis
   redis_image_version: "7"
-  # image_pull_secrets:
-	# - default-quay-onecloud-svc
   ipv6_disabled: true
   auto_upgrade: true
   image: quay.io/ansible/awx
   image_version: 21.13.0
   control_plane_priority_class: prod
   task_privileged: false
-  replicas: 2
+  replicas: 1
   web_resource_requirements:
 	requests:
 	  cpu: 150m
