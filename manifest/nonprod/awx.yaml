@@ -7,7 +7,7 @@ metadata:
 spec:
   service_type: ClusterIP
   ingress_type: Route
-  route_host: awx-test.apps.svc.az.lhtcloud.com
+  route_host: "127.0.0.1:8080"
   route_tls_termination_mechanism: Edge
   redis_image: "http://127.0.0.1:5001/redis"
   redis_image_version: "7"
