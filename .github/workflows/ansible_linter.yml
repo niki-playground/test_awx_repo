@@ -1,0 +1,43 @@
+name: Ansible Lint
+
+on:
+  # Run on every push to main branches or a PR open to main 
+  # (adjust branches as needed)
+
+
+  # push:
+  #   paths:
+  #     - '**.yml'
+  #     - '**.yaml'
+  # pull_request:
+  #   paths:
+  #     - '**.yml'
+  #     - '**.yaml'
+
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  ansible_lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install Ansible and Ansible Lint
+        run: |
+          pip install --upgrade pip
+          pip install ansible ansible-lint
+
+      - name: Run Ansible Lint
+        # Modify the path(s) to your roles/playbooks as needed
+        run: |
+          ansible-lint .
