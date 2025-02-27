@@ -4,20 +4,16 @@ on:
   # Run on every push to main branches or a PR open to main 
   # (adjust branches as needed)
 
-
-  # push:
-  #   paths:
-  #     - '**.yml'
-  #     - '**.yaml'
-  # pull_request:
-  #   paths:
-  #     - '**.yml'
-  #     - '**.yaml'
-
   push:
     branches: [ "main" ]
+    paths:
+      - '**.yml'
+      - '**.yaml'
   pull_request:
     branches: [ "main" ]
+    paths:
+      - '**.yml'
+      - '**.yaml'
 
 jobs:
   ansible_lint:
